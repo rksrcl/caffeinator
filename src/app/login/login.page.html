@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Sign in User</ion-title>
+    <ion-title>Sign in</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -35,6 +35,7 @@
   </ion-row>
   <ion-row>
     <ion-col>
+      <!-- 
       <ion-button
         type="submit"
         color="danger"
@@ -42,7 +43,19 @@
         expand="block"
       >
         Login with Google
+      </ion-button> -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button
+        expand="block"
+        color="danger"
+        [routerLink]="['/registration']"
+      >
+        New user? Register here
       </ion-button>
     </ion-col>
   </ion-row>
+
 </ion-content>
