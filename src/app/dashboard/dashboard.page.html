@@ -10,6 +10,14 @@
       <ion-title size="large">Dashboard</ion-title>
       
     </ion-toolbar>
-  </ion-header>
+  </ion-header>  <ion-card>
+    <ion-card-header>
+      Welcome, {{ userName }}!
+    </ion-card-header>
+    <ion-card-content>
+      This is your personalized landing page.
+    </ion-card-content>
+  </ion-card>
   <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
+
 </ion-content>

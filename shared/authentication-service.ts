@@ -1,8 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
 import * as auth from 'firebase/auth';
+import { UserCredential } from 'firebase/auth';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -34,9 +36,20 @@ export class AuthenticationService {
     return this.ngFireAuth.signInWithEmailAndPassword(email, password);
   }
   // Register user with email/password
-  RegisterUser(email: any, password: any) {
-    return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
+  RegisterUser(email: any, password: any, name: any) {
+    return this.ngFireAuth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        this.SetUserData(user, name);
+      })
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
   }
+  
+  
+  
   // Email verification when new user register
   SendVerificationMail() {
     return this.ngFireAuth.currentUser.then((user: any) => {
@@ -80,21 +93,21 @@ export class AuthenticationService {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
-        this.SetUserData(result.user);
+        this.SetUserData(result.user, name);
       })
       .catch((error) => {
         window.alert(error);
       });
   }
   // Store user in localStorage
-  SetUserData(user: any) {
+  SetUserData(user: any, name: any) {
     const userRef: AngularFirestoreDocument<any> = this.afStore.doc(
       `users/${user.uid}`
     );
     const userData: User = {
       uid: user.uid,
+      displayName: name || user.displayName, // Use provided name or existing display name
       email: user.email,
-      displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
@@ -102,6 +115,7 @@ export class AuthenticationService {
       merge: true,
     });
   }
+  
   // Sign-out
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
@@ -109,4 +123,15 @@ export class AuthenticationService {
       this.router.navigate(['login']);
     });
   }
+  async getUserData(): Promise<User | null> {
+    const user = await this.ngFireAuth.currentUser;
+    
+    if (user) {
+      const userDoc = await this.afStore.doc<User>(`users/${user.uid}`).get().toPromise();
+      return userDoc.data();
+    } else {
+      return null;
+    }
+  }
+
 }

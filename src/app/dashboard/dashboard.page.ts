@@ -6,9 +6,16 @@ import { AuthenticationService } from "../../../shared/authentication-service";
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  userName: string;
   constructor(
     public authService: AuthenticationService
   ) { }
-  ngOnInit() {
+  async ngOnInit() {
+    const userData = await this.authService.getUserData();
+  
+    if (userData) {
+      this.userName = userData.displayName;
+    }
   }
+  
 }
