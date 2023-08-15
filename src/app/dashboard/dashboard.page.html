@@ -18,6 +18,23 @@
       This is your personalized landing page.
     </ion-card-content>
   </ion-card>
+  <ion-item>
+    <ion-input
+      label="How have you been feeling recently?"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder="Enter text to see clear button"
+      [(ngModel)]="userInput"
+      value=""
+    >
+    </ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="addEntry()">Add Entry</ion-button>
+  <br>
+  <ion-card *ngFor="let input of userInputs">
+    <ion-card-content>{{ input }}</ion-card-content>
+  </ion-card>
+   
   <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
 
 </ion-content>

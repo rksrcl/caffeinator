@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../../../shared/authentication-service";
+// import { DatePipe } from '@angular/common';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -7,15 +10,31 @@ import { AuthenticationService } from "../../../shared/authentication-service";
 })
 export class DashboardPage implements OnInit {
   userName: string;
-  constructor(
-    public authService: AuthenticationService
-  ) { }
-  async ngOnInit() {
-    const userData = await this.authService.getUserData();
-  
-    if (userData) {
-      this.userName = userData.displayName;
+  userInput: string = '';
+  userInputs: string[] = [];
+
+  addEntry() {
+    if (this.userInput.trim() !== '') {
+      // const now = new Date();
+      // const formattedDate = this.datePipe.transform(now, 'medium');
+      // this.userInputs.unshift(`${formattedDate}: ${this.userInput}`);
+      this.userInputs.unshift(this.userInput);
+      this.userInput = ''; // Clear the input after adding
+      
     }
   }
-  
+  constructor(public authService: AuthenticationService) { }
+
+  ngOnInit() {
+    this.authService.getUserData(this.authService.userData.uid).subscribe(userData => {
+      if (userData) {
+        this.userName = userData.displayName; // Update the user's name
+      }
+    });
+  }
 }
+
+
+
+
+

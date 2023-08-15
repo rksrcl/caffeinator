@@ -1,3 +1,23 @@
+
+<!--
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+-->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom" *ngIf="showTabs">
+    <ion-tab-button tab="dashboard">
+      <ion-icon name="clipboard"></ion-icon>
+      Virtual Treatment Diary
+    </ion-tab-button>
+    <ion-tab-button tab="question-list">
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+      Q&A Forum
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="help-circle-outline"></ion-icon>
+      FAQ List
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

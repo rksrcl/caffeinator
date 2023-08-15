@@ -4,24 +4,29 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    data: { hideTabs: true }
   },
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: { hideTabs: true }
   },
   {
     path: 'registration',
-    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
+    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule),
+    data: { hideTabs: true }
   },
   {
     path: 'verify-email',
-    loadChildren: () => import('./verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+    loadChildren: () => import('./verify-email/verify-email.module').then( m => m.VerifyEmailPageModule),
+    data: { hideTabs: true }
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    data: { hideTabs: true }
   },
   {
     path: 'dashboard',
@@ -29,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'password-reset',
-    loadChildren: () => import('./password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
+    loadChildren: () => import('./password-reset/password-reset.module').then( m => m.PasswordResetPageModule),
+    data: { hideTabs: true }
   },
   {
     path: 'question-list',

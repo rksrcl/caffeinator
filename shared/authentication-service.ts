@@ -123,15 +123,8 @@ export class AuthenticationService {
       this.router.navigate(['login']);
     });
   }
-  async getUserData(): Promise<User | null> {
-    const user = await this.ngFireAuth.currentUser;
-    
-    if (user) {
-      const userDoc = await this.afStore.doc<User>(`users/${user.uid}`).get().toPromise();
-      return userDoc.data();
-    } else {
-      return null;
-    }
+  getUserData(uid: string) {
+    return this.afStore.doc<any>(`users/${uid}`).valueChanges();
   }
 
 }
