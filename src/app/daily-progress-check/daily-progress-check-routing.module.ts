@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardPage } from './dashboard.page';
-import { AppointmentBookingComponent } from '../appointment-booking/appointment-booking.component';
+import { DailyProgressCheckPage } from './daily-progress-check.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage
+    component: DailyProgressCheckPage
   }
 ];
 
@@ -15,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardPageRoutingModule {}
+export class DailyProgressCheckPageRoutingModule {}

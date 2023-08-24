@@ -1,0 +1,18 @@
+<form [formGroup]="progressForm" (ngSubmit)="submitForm()" *ngIf="!formLocked">
+  <ion-item>
+    <ion-label position="stacked">Feelings:</ion-label>
+    <ion-input type="text" formControlName="feelings"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Additional Notes:</ion-label>
+    <ion-textarea formControlName="additionalNotes"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>I followed treatment requirements</ion-label>
+    <ion-checkbox formControlName="followed"></ion-checkbox>
+  </ion-item>
+
+  <ion-button type="submit">Submit</ion-button>
+</form>

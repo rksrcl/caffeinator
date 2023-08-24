@@ -8,16 +8,29 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Dashboard</ion-title>
-      
     </ion-toolbar>
-  </ion-header>  <ion-card>
-    <ion-card-header>
+  </ion-header>  
+
+  <ion-card>
+    <ion-card-header style="margin-bottom: 0;">
       Welcome, {{ userName }}!
     </ion-card-header>
     <ion-card-content>
-      This is your personalized landing page.
+      <app-appointment-booking></app-appointment-booking>
+    </ion-card-content>
+    <ion-card-content>
+      <button ion-button (click)="togglePastEntries()">Toggle Past Entries</button>
     </ion-card-content>
   </ion-card>
+
+  
+  <ion-card *ngFor="let entry of userInputs">
+    <ion-card-content>
+      {{ entry.entry }} 
+      <p>{{ entry.timestamp | date:'medium' }}</p> 
+    </ion-card-content>
+  </ion-card>
+
   <ion-item>
     <ion-input
       label="How have you been feeling recently?"
@@ -30,11 +43,6 @@
     </ion-input>
   </ion-item>
   <ion-button expand="full" (click)="addEntry()">Add Entry</ion-button>
-  <br>
-  <ion-card *ngFor="let input of userInputs">
-    <ion-card-content>{{ input }}</ion-card-content>
-  </ion-card>
    
   <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
-
 </ion-content>

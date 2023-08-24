@@ -41,6 +41,10 @@ const routes: Routes = [
     path: 'question-list',
     loadChildren: () => import('./question-list/question-list.module').then( m => m.QuestionListPageModule)
   },
+  {
+    path: 'daily-progress-check',
+    loadChildren: () => import('./daily-progress-check/daily-progress-check.module').then( m => m.DailyProgressCheckPageModule)
+  },
 ];
 
 @NgModule({
