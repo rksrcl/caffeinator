@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'intro',
     pathMatch: 'full',
     data: { hideTabs: true }
   },
@@ -44,6 +44,14 @@ const routes: Routes = [
   {
     path: 'daily-progress-check',
     loadChildren: () => import('./daily-progress-check/daily-progress-check.module').then( m => m.DailyProgressCheckPageModule)
+  },
+  {
+    path: 'qanda',
+    loadChildren: () => import('./qanda/qanda.module').then( m => m.QandaPageModule)
+  },
+  {
+    path: 'intro',
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
   },
 ];
 

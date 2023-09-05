@@ -28,6 +28,7 @@ export class DashboardPage implements OnInit {
     this.userInputs = [];
   }
 
+/*
   ngOnInit() {
     this.authService.getUserData(this.authService.userData.uid).subscribe(userData => {
       if (userData) {
@@ -39,6 +40,26 @@ export class DashboardPage implements OnInit {
       }
     });
   }
+*/
+ngOnInit() {
+  if (this.authService.userData) {
+    this.authService.getUserData(this.authService.userData.uid).subscribe(userData => {
+      console.log('Fetched user data:', userData);
+      if (userData) {
+        this.userName = userData.displayName; // Update the user's name
+        this.cdr.detectChanges(); // Manually trigger change detection
+        this.fetchPastEntries();
+      } else {
+        // Redirect user to login page if not logged in
+        this.router.navigate(['/login']); 
+      }
+    });
+  } else {
+    // Redirect user to login page if not logged in
+    this.router.navigate(['/login']); 
+  }
+}
+
 
   async addEntry() {
     if (this.userInput.trim() !== '') {

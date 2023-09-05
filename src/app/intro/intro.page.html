@@ -1,0 +1,23 @@
+<ion-header>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class = "bg" style="background-image: url('/assets/LHO.jpg'); background-position: right center; background-size: cover;">
+    <div class="vertical-center">
+      <ion-img class= "logo" src="/assets/logo.png"></ion-img>
+      <ion-row>
+        <ion-col>
+          <ion-button class="login" (click)="logIn()" type="submit" expand="block">
+            Login
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="buttons" expand="block" [routerLink]="['/registration']">
+            Create account
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

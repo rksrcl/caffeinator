@@ -3,59 +3,77 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Sign in</ion-title>
+    <ion-title>Log in</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-item lines="full">
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="text" #email required></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" #password required></ion-input>
-  </ion-item>
-  <ion-row>
-    <ion-col>
-      <ion-button type="submit" (click)="logIn(email, password)" expand="block"
-        >Login</ion-button
-      >
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-button
-        expand="block"
-        color="warning"
-        [routerLink]="['/password-reset']"
-      >
-        Password Reset
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <!-- 
-      <ion-button
-        type="submit"
-        color="danger"
-        (click)="authService.GoogleAuth()"
-        expand="block"
-      >
-        Login with Google
-      </ion-button> -->
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-button
-        expand="block"
-        color="danger"
-        [routerLink]="['/registration']"
-      >
-        New user? Register here
-      </ion-button>
-    </ion-col>
-  </ion-row>
+<ion-content class="ion-padding">
+  <div class="vertical-center">
+    <ion-text class="text1">Login</ion-text>
+    <ion-text class="text2">Please sign in to continue</ion-text>
+    <br>
+    <ion-item lines="full" class="enter">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+      <ion-icon name="mail" class="icon"></ion-icon>
+    </ion-item>
+    <ion-item lines="full" class="enter">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required></ion-input>
+      <ion-icon name="lock-open" class = "icon"></ion-icon>
+      <ion-note slot="end" class="link">
+        <a id="open-modal" [routerLink]="['/password-reset']" style="text-decoration: none;"> Forgot?</a>
+       <!--        <a id="open-modal" [routerLink]="['/password-reset']" style="text-decoration: none;"> Forgot?</a> --> 
+      </ion-note>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="logIn(email, password)" expand="block"
+          >Login</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <!-- Old password reset button
+      <ion-row>
+      <ion-col>
+        <ion-button
+          expand="block"
+          color="warning"
+          [routerLink]="['/password-reset']"
+        >
+          Password Reset
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    -->
+    <ion-row>
+      <div class="ion-text-center">
+        <ion-note class="register-link">
+          <a [routerLink]="['/registration']" class="register-link" style="text-decoration: none;">
+            New user? <span class="bold-orange">Register here</span>
+          </a>
+        </ion-note>
+      </div>
+    </ion-row>
+
+
+    <!-- Old register user button
+    <ion-row>
+      <ion-col>
+        <ion-button
+          expand="block"
+          color="danger"
+          [routerLink]="['/registration']"
+        >
+          New user? Register here
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    -->
+
+
+  </div>
+
 
 </ion-content>

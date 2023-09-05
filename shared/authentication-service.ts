@@ -86,19 +86,20 @@ export class AuthenticationService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
   // Auth providers
-  AuthLogin(provider: any) {
+  AuthLogin(provider: any, name?: string) {
     return this.ngFireAuth
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
-        this.SetUserData(result.user, name);
+        this.SetUserData(result.user, name); // Pass name as an argument if needed
       })
       .catch((error) => {
         window.alert(error);
       });
   }
+  
   // Store user in localStorage
   SetUserData(user: any, name: any) {
     const userRef: AngularFirestoreDocument<any> = this.afStore.doc(

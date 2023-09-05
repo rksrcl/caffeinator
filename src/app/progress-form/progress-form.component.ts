@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -12,7 +12,7 @@ export class ProgressFormComponent implements OnInit {
 
   progressForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore) {
+  constructor(private fb: FormBuilder, private afs: AngularFirestore, private cdr: ChangeDetectorRef) {
     this.progressForm = this.fb.group({
       // Define form controls
       feelings: ['', [Validators.required]],
@@ -60,6 +60,7 @@ export class ProgressFormComponent implements OnInit {
           sessionStorage.setItem('formLocked', 'true');
           sessionStorage.setItem('lockTimestamp', String(currentDate.getTime()));
           this.progressForm.disable();
+          this.cdr.detectChanges();
         })
         .catch(error => {
           console.error('Error submitting form:', error);

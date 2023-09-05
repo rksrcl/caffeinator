@@ -1,0 +1,99 @@
+:root {
+    --ion-color-secondary: #006600;
+    --ion-color-secondary-rgb: 0, 102, 0;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #005a00;
+    --ion-color-secondary-tint: #1a751a;
+  }
+  
+  .vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Use viewport height for full-screen height */
+  }
+  
+  /* your-component.scss */
+  .forgot-password-link {
+    position: absolute;
+    top: 33px;
+    //bottom: -0.5px; /* Adjust this value to move the link slightly down */
+    right: 0; /* Align the link to the right */
+    font-size: 14px;
+  }
+  
+  .icon-container{
+    display:flex;
+    flex-direction: column;
+  }
+  
+  
+  
+  /* Style for the email icon */
+  .icon {
+    position: absolute;
+    top: 30px;
+    font-size: 18px; /* Adjust this value to change the icon size */
+  }
+  
+  .button {
+    margin-left: 12%;
+    margin-right: 12%;
+    --background: #f37b4b;
+    --background-hover: #ec622b;
+    --background-activated: #ec622b;
+    --background-focused: #ec622b;
+    
+  }
+  ion-back-button {
+    --background: transparent; /* Set the background to transparent */
+  }
+  
+  .enter {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .e {
+    text-indent: 28px;
+    margin-top: 20px;
+    margin-right: 50px;
+  
+  }
+  
+  .p {
+    text-indent: 28px;
+    margin-top: 20px;
+    margin-right: 50px;
+    
+    
+  }
+  
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+    width: 45%;
+    margin-left: 27.5%;
+    margin-bottom: 240px;
+    height: 45%;
+    height: 25vh;
+}
+
+.bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Push the background behind other content */
+}
+
