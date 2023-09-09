@@ -21,10 +21,54 @@
       <ion-input type="password" #password required></ion-input>
       <ion-icon name="lock-open" class = "icon"></ion-icon>
       <ion-note slot="end" class="link">
-        <a id="open-modal" [routerLink]="['/password-reset']" style="text-decoration: none;"> Forgot?</a>
+        
+        <a id="open-modal" style="text-decoration: none;"> Forgot?</a>
        <!--        <a id="open-modal" [routerLink]="['/password-reset']" style="text-decoration: none;"> Forgot?</a> --> 
       </ion-note>
     </ion-item>
+    <br>
+    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+      <ng-template>
+        <div class="block">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="cancel()"> Back </ion-button>
+              </ion-buttons>
+              <ion-title>Reset your password</ion-title>
+            </ion-toolbar>
+            <div class="modal-content">
+              <ion-item lines="full" class="texttt">
+                <ion-text>Enter the email address associated with your account and we'll send you a link to reset your password.</ion-text>
+              </ion-item>
+              <form>
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="full" class = "ee">
+                      <ion-input type="text"  placeholder="Email" #email required></ion-input>
+                    
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-button
+                      class = "buttons"
+                      type="submit"
+
+                      (click)="authService.PasswordRecover(email.value)"
+                      expand="block"
+                    >
+                      Send Password Reset Mail
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </form>
+            </div>
+          </ion-header> 
+      </div>
+      </ng-template>
+    </ion-modal>
     <ion-row>
       <ion-col>
         <ion-button type="submit" (click)="logIn(email, password)" expand="block"

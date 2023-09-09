@@ -1,62 +1,170 @@
 .vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: center;
+  height: 90%; /* Use viewport height for full-screen height */
+}
+
+/* your-component.scss */
+.forgot-password-link {
+  position: absolute;
+  top: 13px;
+  //bottom: -0.5px; /* Adjust this value to move the link slightly down */
+  right: 0; /* Align the link to the right */
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.icon-container{
+  display:flex;
+  flex-direction: column;
+}
+
+
+.text1 {
+  margin-left: 30px;
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+
+.text2 {
+  margin-left: 30px;
+  font-size: 15px;
+  color: rgb(97, 97, 97);
+}
+/* Style for the email icon */
+.icon {
+  position: absolute;
+  top: 12px;
+  font-size: 18px; /* Adjust this value to change the icon size */
+}
+.link a {
+  color: #f37b4b; /* Set the color to the desired shade of orange */
+  font-size: 15px;
+}
+.buttons {
+  margin-left: 28px;
+  margin-right: 28px;
+  --background: #f37b4b;
+  --background-hover: #ec622b;
+  --background-activated: #ec622b;
+  --background-focused: #ec622b;
+  gap: 5px;
+  margin-top: -3px;
+  margin-bottom: 8px;
+}
+.model-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.block {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texttt{
+  margin-top: 8%;
+  margin-left: 21px;
+  margin-right: 20px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+ion-modal {
+  --backdrop-filter: none;
+  ion-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Full height of modal content */
+    
+  }
+  
+}
+
+.modal-content {
+  text-align: center; /* Center text content within the container */
+  padding: 20px;
+  /* Add any other styling for the content */
+}
+ion-modal {
+  ion-content {
+    --ion-background-color: transparent; /* Set background color to transparent */
+  }
+  --height: 70%;
+  
+  ion-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    --ion-item-background: none; /* Remove background color */
+    --border-width: 0; /* Remove border */
+    --highlight-height: 0; /* Remove highlight when item is pressed */
+    --detail-push-height: 0; /* Remove detail icon */
   }
+}
+
+ion-modal, ion-content {
+  overflow: visible !important;
+}
+
+.enter {
+  margin-left: 30px;
+  margin-right: 30px;
+  --background: #f5f5f5;
+  border-color: #403E39;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.e {
+  text-indent: 28px;
+  //margin-top: 20px;
+  //margin-right: 50px;
   
-  .text1 {
-    font-size: 24px;
-    font-weight: bold;
-  }
+
+}
+.ee {
+  --background: #f5f5f5;
+  border-color: #403E39;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 8px;
+}
+
+.p {
+  text-indent: 28px;
+  //margin-top: 20px;
+  //margin-right: 50px;
   
-  .text2 {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 20px;
-  }
   
-  .enter {
-    width: 100%;
-    max-width: 320px;
-    margin-bottom: 20px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-    padding: 5px;
-    position: relative;
-  }
-  
-  .icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #888;
-  }
-  
-  .link {
-    text-align: right;
-    font-size: 12px;
-    color: #888;
-    cursor: pointer;
-  }
-  
-  .buttons {
-    background-color: #ff9900;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .bold-orange {
-    font-weight: bold;
-    color: #ff9900;
-  }
-  
-  .register-link {
-    font-size: 12px;
-    color: #888;
-    text-decoration: none;
-  }
-  
+}
+.AAAAA {
+  margin-left: 3
+}
+
+.on-back-button {
+  background-color: transparent;
+}
+
+.register-link {
+  color: rgb(97, 97, 97);
+  font-size: 15px;
+}
+
+.bold-orange {
+  font-weight: bold;
+  color: #f37b4b;
+  font-size: 15px;
+}
