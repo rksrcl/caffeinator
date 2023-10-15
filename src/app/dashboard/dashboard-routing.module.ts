@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardPage } from './dashboard.page';
-import { AppointmentBookingComponent } from '../appointment-booking/appointment-booking.component';
 
 const routes: Routes = [
   {

@@ -14,7 +14,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Check the current route and conditionally show/hide tabs
-        this.showTabs = !['/login', '/registration', '/password-reset'].includes(event.url);
+        this.showTabs = !['/login', '/registration', '/password-reset', '/intro'].includes(event.url);
       }
     });
   }

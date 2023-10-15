@@ -1,11 +1,10 @@
 // import { DatePipe } from '@angular/common';
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AuthenticationService } from "../../../shared/authentication-service";
-import { DiaryService } from "../../../shared/diary-service"; // Import your DiaryService
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AppointmentBookingComponent } from '../appointment-booking/appointment-booking.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +12,7 @@ import { AppointmentBookingComponent } from '../appointment-booking/appointment-
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  caffeineData: any[] = [];
   userName: string;
   userInput: string = '';
   userInputs: any[] = [];
@@ -20,13 +20,33 @@ export class DashboardPage implements OnInit {
 
   constructor(
     public authService: AuthenticationService,
-    private diaryService: DiaryService, // Inject your DiaryService
     private router: Router,
+    private db: AngularFireDatabase,
     private cdr: ChangeDetectorRef
 
   ) { 
     this.userInputs = [];
+  
   }
+  goToAddDrinkPage() {
+    this.router.navigate(['/add-drink']);
+  }
+  ionViewDidEnter() {
+    this.retrieveCaffeineData();
+  }
+
+
+  retrieveCaffeineData() {
+    this.db
+      .list('drinks', (ref) => ref.orderByChild('timestamp'))
+      .valueChanges()
+      .subscribe((data: any[]) => {
+        this.caffeineData = data;
+      });
+  }
+
+  
+
 
 /*
   ngOnInit() {
@@ -48,7 +68,6 @@ ngOnInit() {
       if (userData) {
         this.userName = userData.displayName; // Update the user's name
         this.cdr.detectChanges(); // Manually trigger change detection
-        this.fetchPastEntries();
       } else {
         // Redirect user to login page if not logged in
         this.router.navigate(['/login']); 
@@ -60,49 +79,7 @@ ngOnInit() {
   }
 }
 
-
-  async addEntry() {
-    if (this.userInput.trim() !== '') {
-      try {
-        await this.addDiaryEntry(this.userInput);
-        if (this.showPastEntries) {
-          this.userInputs.unshift({
-            entry: this.userInput,
-            timestamp: new Date(), // You can use the current date as the timestamp
-          });
-        }
-        this.userInput = ''; // Clear the input after adding
-      } catch (error) {
-        console.error('Error adding diary entry:', error);
-      }
-    }
-  }
   
-
-  async togglePastEntries() {
-    if (this.showPastEntries) {
-      this.showPastEntries = false;
-      this.userInputs = []; // Clear the userInputs array
-    } else {
-      try {
-        this.showPastEntries = true;
-        this.fetchPastEntries(); // Fetch entries using the async method
-      } catch (error) {
-        console.error('Error fetching past entries:', error);
-      }
-    }
-  }
-  
-  
-
-  async addDiaryEntry(entry: string): Promise<void> {
-    try {
-      await this.diaryService.addDiaryEntry(entry); // Call your DiaryService method to add the entry
-    } catch (error) {
-      console.error('Error adding diary entry:', error);
-      throw error;
-    }
-  }
 
   updateUserName() {
     this.authService.getUserData(this.authService.userData.uid).pipe(take(1)).subscribe(userData => {
@@ -112,22 +89,6 @@ ngOnInit() {
     });
   }
 
-async fetchPastEntries() {
-  this.userInputs = []; // Clear the userInputs array before fetching entries
-  if (this.showPastEntries) {
-    try {
-      const entries = await this.diaryService.getDiaryEntries().toPromise(); // Fetch entries
-      this.userInputs = entries.map(entry => ({
-        entry: entry.entry,
-        timestamp: entry.timestamp.toDate()
-      }));
-    } catch (error) {
-      console.error('Error fetching past entries:', error);
-    }
-  } else {
-    this.userInputs = []; // Clear the userInputs when not showing past entries
-  }
-}
   
 }
 

@@ -1,49 +1,56 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
+  
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
+      <ion-title size="large">hi, {{ userName }}!</ion-title>
     </ion-toolbar>
   </ion-header>  
+  
+
+
 
   <ion-card>
+    
     <ion-card-header style="margin-bottom: 0;">
-      Welcome, {{ userName }}!
+      <a>pun of the day: why couldn't the bike stand up? it was too tired. </a>
+      
     </ion-card-header>
+
+    <ion-card-header>
+      <!-- <a [routerLink]="['/add-drink']">Add drink</a> -->
+      <ion-button (click)="goToAddDrinkPage()">add drink</ion-button>
+    </ion-card-header>
+      
     <ion-card-content>
       <!-- <app-appointment-booking></app-appointment-booking> -->
-      <a href="https://calendly.com/bobblychan">Book an appointment </a>
+      
     </ion-card-content>
-    <ion-card-content>
-      <button ion-button (click)="togglePastEntries()">Toggle Past Entries</button>
-    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-item *ngFor="let drink of caffeineData">
+          <strong>{{ drink.temperature }} {{ drink.size }} {{ drink.name }}    </strong>
+        <div class="line-break"></div>
+          caffeine: {{ drink.caffeine }} mg
+        <div class="line-break"></div>
+          {{ drink.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}
+
+      </ion-item>
+    </ion-list>
   </ion-card>
 
   
-  <ion-card *ngFor="let entry of userInputs">
-    <ion-card-content>
-      {{ entry.entry }} 
-      <p>{{ entry.timestamp | date:'medium' }}</p> 
-    </ion-card-content>
-  </ion-card>
-
-  <ion-item>
-    <ion-input
-      label="How have you been feeling recently?"
-      labelPlacement="stacked"
-      [clearInput]="true"
-      placeholder="Enter text to see clear button"
-      [(ngModel)]="userInput"
-      value=""
-    >
-    </ion-input>
-  </ion-item>
-  <ion-button expand="full" (click)="addEntry()">Add Entry</ion-button>
    
   <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
 </ion-content>

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { QandaPageRoutingModule } from './qanda-routing.module';
+import { AddDrinkPageRoutingModule } from './add-drink-routing.module';
 
-import { QandaPage } from './qanda.page';
+import { AddDrinkPage } from './add-drink.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QandaPageRoutingModule
+    AddDrinkPageRoutingModule
   ],
-  declarations: [QandaPage]
+  declarations: [AddDrinkPage]
 })
-export class QandaPageModule {}
+export class AddDrinkPageModule {}

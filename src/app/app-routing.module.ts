@@ -38,20 +38,16 @@ const routes: Routes = [
     data: { hideTabs: true }
   },
   {
-    path: 'question-list',
-    loadChildren: () => import('./question-list/question-list.module').then( m => m.QuestionListPageModule)
-  },
-  {
-    path: 'daily-progress-check',
-    loadChildren: () => import('./daily-progress-check/daily-progress-check.module').then( m => m.DailyProgressCheckPageModule)
-  },
-  {
-    path: 'qanda',
-    loadChildren: () => import('./qanda/qanda.module').then( m => m.QandaPageModule)
-  },
-  {
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
+    path: 'add-drink',
+    loadChildren: () => import('./add-drink/add-drink.module').then( m => m.AddDrinkPageModule)
+  },
+  {
+    path: 'analysis',
+    loadChildren: () => import('./analysis/analysis.module').then( m => m.AnalysisPageModule)
   },
 ];
 

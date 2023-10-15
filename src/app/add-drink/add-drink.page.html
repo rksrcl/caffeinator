@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add drink</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">record</ion-title>
+    </ion-toolbar>
+  </ion-header>  
+
+  <ion-item>
+    <ion-label>hot/iced</ion-label>
+    <ion-select [(ngModel)]="drinkTemperature" name="drinkTemperature">
+      <ion-select-option value="hot">hot</ion-select-option>
+      <ion-select-option value="iced">iced</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>size</ion-label>
+    <ion-select [(ngModel)]="drinkSize" name="drinkSize">
+      <ion-select-option value="short">Short</ion-select-option>
+      <ion-select-option value="tall">Tall</ion-select-option>
+      <ion-select-option value="grande">Grande</ion-select-option>
+      <ion-select-option value="venti">Venti</ion-select-option>
+      <ion-select-option value="trenta">Trenta</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>drink name</ion-label>
+    <ion-select [(ngModel)]="drinkName" name="drinkName">
+      <ion-select-option value="pike">Pike</ion-select-option>
+      <ion-select-option value="dark">Dark Roast</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addDrink()">add drink</ion-button>
+
+</ion-content>
