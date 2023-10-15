@@ -13,6 +13,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  showAllDrinks: boolean = false;
   caffeineData: any[] = [];
   userName: string;
   userInput: string = '';
@@ -54,7 +55,7 @@ export class DashboardPage implements OnInit {
         this.caffeineData = data;
         this.calculateCurrentDayCaffeine();
       });
-      
+
   }
 
   calculateCurrentDayCaffeine() {
@@ -64,6 +65,27 @@ export class DashboardPage implements OnInit {
     );
   }
 
+  toggleShowAllDrinks() {
+    this.showAllDrinks = !this.showAllDrinks;
+    if (this.showAllDrinks) {
+      this.retrieveAllCaffeineData();
+    } else {
+      this.caffeineData = [];
+      this.retrieveCaffeineData();
+    }
+  }
+  retrieveAllCaffeineData() {
+    if (this.showAllDrinks) {
+      // Retrieve all drinks without date filtering
+      this.db
+        .list('drinks', (ref) => ref.orderByChild('timestamp'))
+        .valueChanges()
+        .subscribe((data: any[]) => {
+          this.caffeineData = data;
+        });
+    }
+  }
+  
   
 
 
