@@ -40,16 +40,16 @@
   font-size: 18px; /* Adjust this value to change the icon size */
 }
 .link a {
-  color: #f37b4b; /* Set the color to the desired shade of orange */
+  color: #be8317; /* Set the color to the desired shade of orange */
   font-size: 15px;
 }
 .buttons {
   margin-left: 28px;
   margin-right: 28px;
-  --background: #f37b4b;
-  --background-hover: #ec622b;
-  --background-activated: #ec622b;
-  --background-focused: #ec622b;
+  --background: #be8317;
+  --background-hover: #be8317;
+  --background-activated: #be8317;
+  --background-focused: #be8317;
   gap: 5px;
   margin-top: -3px;
   margin-bottom: 8px;
@@ -165,6 +165,12 @@ ion-modal, ion-content {
 
 .bold-orange {
   font-weight: bold;
-  color: #f37b4b;
+  color: #309854;
   font-size: 15px;
 }
+
+.custom-login-button {
+  background-color: #309854 !important;
+  border-radius: 20px !important;
+}
+

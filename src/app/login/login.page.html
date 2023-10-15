@@ -71,25 +71,11 @@
     </ion-modal>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" (click)="logIn(email, password)" expand="block"
+        <ion-button type="submit" (click)="logIn(email, password)" expand="block" class="custom-login-button"
           >Login</ion-button
         >
       </ion-col>
     </ion-row>
-    <!-- Old password reset button
-      <ion-row>
-      <ion-col>
-        <ion-button
-          expand="block"
-          color="warning"
-          [routerLink]="['/password-reset']"
-        >
-          Password Reset
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-    -->
     <ion-row>
       <div class="ion-text-center">
         <ion-note class="register-link">
