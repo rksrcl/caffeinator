@@ -12,10 +12,38 @@ export class AddDrinkPage {
   drinkTemperature: string;
   drinkSize: number;
   drinkDictionary: { [name: string]: number } = {
-    "hotshortpike": 95,
-    "dark": 30,
-    "Cola": 40,
-    // Add more drinks and caffeine content as needed
+    "hotshortflatwhite": 130,
+    "hottallflatwhite": 130,
+    "hotgrandeflatwhite": 195,
+    "hotventiflatwhite": 195,
+    "hotshortamericano": 75,
+    "hottallamericano": 150,
+    "hotgrandeamericano": 225,
+    "hotventiamericano": 300,
+    "hotshortbrewedpike": 155,
+    "hottallbrewedpike": 235,
+    "hotgrandebrewedpike": 310,
+    "hotventibrewedpike": 410,
+    "hotshortdark": 130,
+    "hottalldark": 195,
+    "hotgrandedark": 260,
+    "hotventidark": 340,
+    "hotshortchai": 50,
+    "hottallchai": 70,
+    "hotgrandechai": 95,
+    "hotventichai": 120,
+    "hotshortbrewedblacktea": 40,
+    "hottallbrewedblacktea": 40,
+    "hotgrandebrewedblacktea": 40,
+    "hotventibrewedblacktea": 40,
+    "hotshortbrewedgreentea": 25,
+    "hottallbrewedgreentea": 25,
+    "hotgrandebrewedgreentea": 25,
+    "hotventibrewedgreentea": 25,
+    "hotshortherbaltea": 0,
+    "hottallherbaltea": 0,
+    "hotgrandeherbaltea": 0,
+    "hotventiherbaltea": 0,
   };
   
 
@@ -33,7 +61,7 @@ export class AddDrinkPage {
         temperature: this.drinkTemperature,
         size: this.drinkSize,
         caffeine: caffeineContent,
-        timestamp: timestamp,
+        
       });
 
       // Reset form fields

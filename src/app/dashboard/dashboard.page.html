@@ -29,25 +29,40 @@
       <!-- <a [routerLink]="['/add-drink']">Add drink</a> -->
       <ion-button (click)="goToAddDrinkPage()">add drink</ion-button>
     </ion-card-header>
-      
+
+  </ion-card>
+  <ion-card>
     <ion-card-content>
-      <!-- <app-appointment-booking></app-appointment-booking> -->
+      <ion-header collapse="condense">
+          <strong>your intake today:</strong>
+          <br>
+        {{ currentDayCaffeine }} mg
+        
+      </ion-header>
       
     </ion-card-content>
 
   </ion-card>
 
   <ion-card>
-    <ion-list>
+    <ion-header collapse="condense">
+      
+    </ion-header>  
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>
+          <strong>drinks stats</strong>
+        </ion-label>
+      </ion-item>
       <ion-item *ngFor="let drink of caffeineData">
-          <strong>{{ drink.temperature }} {{ drink.size }} {{ drink.name }}    </strong>
-        <div class="line-break"></div>
-          caffeine: {{ drink.caffeine }} mg
-        <div class="line-break"></div>
-          {{ drink.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}
-
+        <ion-label>
+          <strong>{{ drink.temperature }} {{ drink.size }} {{ drink.name }}</strong>
+          <p>caffeine: {{ drink.caffeine }} mg</p>
+          <p>{{ drink.timestamp | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+        </ion-label>
       </ion-item>
     </ion-list>
+    
   </ion-card>
 
   

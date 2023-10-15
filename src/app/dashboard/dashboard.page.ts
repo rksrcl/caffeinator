@@ -5,6 +5,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AuthenticationService } from "../../../shared/authentication-service";
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ export class DashboardPage implements OnInit {
   userName: string;
   userInput: string = '';
   userInputs: any[] = [];
-  showPastEntries: boolean = false;
+
+  currentDayCaffeine: number = 0;
 
   constructor(
     public authService: AuthenticationService,
@@ -37,12 +39,29 @@ export class DashboardPage implements OnInit {
 
 
   retrieveCaffeineData() {
+    const currentDate = formatDate(new Date(), 'yyyy-MM-dd', 'en-US'); // Today's date (YYYY-MM-dd)
+
     this.db
-      .list('drinks', (ref) => ref.orderByChild('timestamp'))
+      .list('drinks', (ref) =>
+        ref
+          .orderByChild('timestamp')
+          .startAt(currentDate)
+          .endAt(currentDate + '\uf8ff')
+      )
       .valueChanges()
       .subscribe((data: any[]) => {
+        console.log('Retrieved data:', data);
         this.caffeineData = data;
+        this.calculateCurrentDayCaffeine();
       });
+      
+  }
+
+  calculateCurrentDayCaffeine() {
+    this.currentDayCaffeine = this.caffeineData.reduce(
+      (total, drink) => total + drink.caffeine,
+      0
+    );
   }
 
   
@@ -91,5 +110,3 @@ ngOnInit() {
 
   
 }
-
-
