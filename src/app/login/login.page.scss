@@ -2,16 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //align-items: center;
-  height: 90%; /* Use viewport height for full-screen height */
+  height: 90%;
 }
 
-/* your-component.scss */
 .forgot-password-link {
   position: absolute;
   top: 13px;
-  //bottom: -0.5px; /* Adjust this value to move the link slightly down */
-  right: 0; /* Align the link to the right */
+  right: 0;
   font-size: 14px;
   margin-right: 10px;
 }
@@ -33,14 +30,14 @@
   font-size: 15px;
   color: rgb(97, 97, 97);
 }
-/* Style for the email icon */
+
 .icon {
   position: absolute;
   top: 12px;
-  font-size: 18px; /* Adjust this value to change the icon size */
+  font-size: 18px;
 }
 .link a {
-  color: #be8317; /* Set the color to the desired shade of orange */
+  color: #be8317;
   font-size: 15px;
 }
 .buttons {
@@ -79,22 +76,21 @@ ion-modal {
   --backdrop-filter: none;
   ion-content {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100%; /* Full height of modal content */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     
   }
   
 }
 
 .modal-content {
-  text-align: center; /* Center text content within the container */
+  text-align: center;
   padding: 20px;
-  /* Add any other styling for the content */
 }
 ion-modal {
   ion-content {
-    --ion-background-color: transparent; /* Set background color to transparent */
+    --ion-background-color: transparent;
   }
   --height: 70%;
   
@@ -102,10 +98,10 @@ ion-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    --ion-item-background: none; /* Remove background color */
-    --border-width: 0; /* Remove border */
-    --highlight-height: 0; /* Remove highlight when item is pressed */
-    --detail-push-height: 0; /* Remove detail icon */
+    --ion-item-background: none;
+    --border-width: 0;
+    --highlight-height: 0;
+    --detail-push-height: 0;
   }
 }
 
@@ -126,8 +122,6 @@ ion-modal, ion-content {
 
 .e {
   text-indent: 28px;
-  //margin-top: 20px;
-  //margin-right: 50px;
   
 
 }
@@ -145,8 +139,6 @@ ion-modal, ion-content {
 
 .p {
   text-indent: 28px;
-  //margin-top: 20px;
-  //margin-right: 50px;
   
   
 }

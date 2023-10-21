@@ -11,15 +11,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh; /* Use viewport height for full-screen height */
+    height: 100vh;
   }
   
-  /* your-component.scss */
   .forgot-password-link {
     position: absolute;
     top: 33px;
-    //bottom: -0.5px; /* Adjust this value to move the link slightly down */
-    right: 0; /* Align the link to the right */
+    right: 0;
     font-size: 14px;
   }
   
@@ -29,12 +27,10 @@
   }
   
   
-  
-  /* Style for the email icon */
   .icon {
     position: absolute;
     top: 30px;
-    font-size: 18px; /* Adjust this value to change the icon size */
+    font-size: 18px;
   }
   
   .button {
@@ -47,7 +43,7 @@
     
   }
   ion-back-button {
-    --background: transparent; /* Set the background to transparent */
+    --background: transparent;
   }
   
   .enter {
@@ -94,6 +90,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1; /* Push the background behind other content */
+  z-index: -1;
 }
 

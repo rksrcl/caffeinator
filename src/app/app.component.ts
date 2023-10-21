@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Check the current route and conditionally show/hide tabs
         this.showTabs = !['/login', '/registration', '/password-reset', '/intro'].includes(event.url);
       }
     });

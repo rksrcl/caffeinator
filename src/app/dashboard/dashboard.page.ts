@@ -1,5 +1,3 @@
-// import { DatePipe } from '@angular/common';
-
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AuthenticationService } from "../../../shared/authentication-service";
