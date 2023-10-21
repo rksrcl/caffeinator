@@ -1,5 +1,5 @@
 # caffeinator
-As fall/winter creeps in here in Seattle, people's lifestyles are as inseparable from their Starbucks runs. caffeinator seeks to provide people an awareness of their caffeine intake through an easy tracking system. It hopes to inspire health to its users and the planet.
+As fall/winter creeps in here in Seattle, people's lifestyles are increasingly inseparable from their Starbucks runs. caffeinator seeks to provide people an awareness of their caffeine intake through an easy tracking system. It hopes to inspire health to its users and the planet.
 
 App functions:
 - User profile for personalized caffeine reports
